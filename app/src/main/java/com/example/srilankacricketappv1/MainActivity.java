@@ -22,6 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 
 import fragment.BlankFragment;
+import fragment.WebcastFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,16 +89,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_Live_webcast) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new BlankFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
         } else if (id == R.id.nav_latest_news) {
 
         } else if (id == R.id.nav_video_gallery) {
-        }else if(id==R.id.nav_webCast){
+
+        }else if(id==R.id.nav_Live_webcast){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
-        }
-        else if (id == R.id.nav_tools) {
+
 
         } else if (id == R.id.nav_twitter) {
 
