@@ -94,6 +94,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_latest_news) {
 
         } else if (id == R.id.nav_video_gallery) {
+        }else if(id==R.id.nav_webCast){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
+        }
+        else if (id == R.id.nav_tools) {
 
         } else if (id == R.id.nav_twitter) {
 
