@@ -22,6 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 
 import fragment.BlankFragment;
+import fragment.Contact;
 import fragment.WebcastFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -88,21 +89,33 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
-        } else if (id == R.id.nav_latest_news) {
-
-        } else if (id == R.id.nav_video_gallery) {
-
-        }else if(id==R.id.nav_Live_webcast){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
 
 
-        } else if (id == R.id.nav_twitter) {
+        switch (id){
+            case R.id.nav_home:
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
+                break;
+            case R.id.nav_latest_news:
+                break;
+            case R.id.nav_video_gallery:
+                //dcdc
+                break;
+                case R.id.nav_Live_webcast:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
 
-        } else if (id == R.id.nav_poling) {
 
-        }else if (id == R.id.nav_facebook) {
+                    break;
+            case R.id.nav_twitter:
+                break;
+            case R.id.nav_poling:
+                break;
+            case R.id.nav_facebook:
+                break;
+            case R.id.nav_contact_us:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Contact()).commit();
+
+
+
 
         }
 
