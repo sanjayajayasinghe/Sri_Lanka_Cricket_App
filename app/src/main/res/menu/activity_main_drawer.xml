@@ -6,32 +6,54 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_Live_webcast"
+            android:icon="@drawable/ic_videocam_black_24dp"
+            android:title="@string/live_webcast" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_latest_news"
+            android:icon="@drawable/ic_announcement_black_24dp"
+            android:title="@string/latest_news" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/nav_video_gallery"
+            android:icon="@drawable/ic_video_library_black_24dp"
+            android:title="@string/video_gallery" />
+        <item
+            android:id="@+id/nav_poling"
+            android:icon="@drawable/ic_thumbs_up_down_black_24dp"
+            android:title="@string/poling" />
     </group>
+
+
+    <item android:title="Social">
+        <menu>
+            <item
+                android:id="@+id/nav_facebook"
+                android:icon="@mipmap/icons8_facebook_52"
+                android:title="@string/facebook" />
+            <item
+                android:id="@+id/nav_twitter"
+                android:icon="@mipmap/icons8_twitter_circled_100"
+                android:title="@string/twitter" />
+        </menu>
+    </item>
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:id="@+id/nav_contact_us"
+                android:icon="@drawable/ic_contact_phone_black_24dp"
+                android:title="@string/contact_us"/>
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share_black_24dp"
+                android:title="@string/share_app_now" />
+            <item
+                android:id="@+id/rating"
+                android:icon="@drawable/ic_rate_review_black_24dp"
+                android:title="@string/rate_now" />
         </menu>
     </item>
 

@@ -89,15 +89,17 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_Live_webcast) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new BlankFragment()).commit();
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_latest_news) {
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.nav_video_gallery) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_twitter) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_poling) {
+
+        }else if (id == R.id.nav_facebook) {
 
         }
 
