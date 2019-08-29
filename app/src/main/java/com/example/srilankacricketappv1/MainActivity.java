@@ -2,11 +2,6 @@ package com.example.srilankacricketappv1;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
@@ -21,8 +16,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-import fragment.BlankFragment;
-import fragment.Contact;
+import fragment.ContactFragment;
+import fragment.PollingFragment;
 import fragment.WebcastFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -108,11 +103,13 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_twitter:
                 break;
             case R.id.nav_poling:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new PollingFragment()).commit();
+
                 break;
             case R.id.nav_facebook:
                 break;
             case R.id.nav_contact_us:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Contact()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ContactFragment()).commit();
 
 
 
