@@ -15,9 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-
 import fragment.ContactFragment;
 import fragment.PollingFragment;
+import fragment.SearchFragment;
 import fragment.WebcastFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if(id == R.id.action_toolbarsearch){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SearchFragment()).commit();
         }
 
         return super.onOptionsItemSelected(item);
@@ -93,26 +95,19 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_latest_news:
                 break;
             case R.id.nav_video_gallery:
-                //dcdc
                 break;
-                case R.id.nav_Live_webcast:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
-
-
-                    break;
+            case R.id.nav_Live_webcast:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
+                break;
             case R.id.nav_twitter:
                 break;
             case R.id.nav_poling:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new PollingFragment()).commit();
-
                 break;
             case R.id.nav_facebook:
                 break;
             case R.id.nav_contact_us:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ContactFragment()).commit();
-
-
-
 
         }
 
