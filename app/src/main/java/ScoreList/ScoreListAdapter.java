@@ -46,6 +46,8 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
     public void onBindViewHolder(@NonNull final ScoreItemHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called");
 
+        holder.name.setText(scoreList.get(position).getMatchName());
+
         Glide.with(mContext).load(scoreList.get(position).getCountry1image()).asBitmap().into(holder.country1image);
         Glide.with(mContext).load(scoreList.get(position).getCountry2image()).asBitmap().into(holder.country2image);
 
@@ -105,6 +107,7 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
     public static class ScoreItem{
 
         String matchID;
+        String matchName;
         String country1image;
         String country1name;
         String country1score;
@@ -113,8 +116,9 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
         String country2score;
         boolean isLive;
 
-        public ScoreItem(String matchID, String country1image, String country1name, String country1score, String country2image, String country2name, String country2score, boolean isLive) {
+        public ScoreItem(String matchID, String matchName,String country1image, String country1name, String country1score, String country2image, String country2name, String country2score, boolean isLive) {
             this.matchID = matchID;
+            this.matchName = matchName;
             this.country1image = country1image;
             this.country1name = country1name;
             this.country1score = country1score;
@@ -126,6 +130,10 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
 
         public String getMatchID() {
             return matchID;
+        }
+
+        public String getMatchName() {
+            return matchName;
         }
 
         public String getCountry1image() {

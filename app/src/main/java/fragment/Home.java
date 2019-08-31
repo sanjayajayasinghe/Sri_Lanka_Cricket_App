@@ -126,19 +126,18 @@ public class Home extends Fragment {
 
     private void addDetails() {
 
-        scoreList.add(new ScoreItem("1001",PAK, "PAK", "120/3", IND, "IND", "253", true));
-        scoreList.add(new ScoreItem("1002",SL, "PAK", "120/3", ENG, "IND", "253", false));
-        scoreList.add(new ScoreItem("1003",SL, "PAK", "120/3", ENG, "IND", "253", true));
-        scoreList.add(new ScoreItem("1004",SL, "PAK", "120/3", ENG, "IND", "253", false));
-        scoreList.add(new ScoreItem("1005",SL, "PAK", "120/3", ENG, "IND", "253", true));
+        scoreList.add(new ScoreItem("1001","PAK Vs IND",PAK, "PAK", "120/3", IND, "IND", "253", true));
+        scoreList.add(new ScoreItem("1002","SL Vs ENG",SL, "SL", "250", ENG, "ENG", "253", false));
+        scoreList.add(new ScoreItem("1003","NZ Vs WI",NZ, "NZ", "222/2", WI, "WI", "253", true));
+        scoreList.add(new ScoreItem("1004","AUS Vs PAK",AUS, "AUS", "0/2", PAK, "PAK", "253", false));
+        scoreList.add(new ScoreItem("1005","NZ vs SL",NZ, "NZ", "145/0", SL, "SL", "253", true));
 
         newsList.add(new NewsItem("001","Jason Holder steps up to change","A drive on the up, to the left of cover point. That shot, by Ajinkya Rahane off Shannon Gabriel, came in the 57th over of India's innings on Friday.","https://a3.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1199103_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
-        newsList.add(new NewsItem("001","Isuru Udana to replace David Willey","Sri Lanka allrounder Isuru Udana has replaced David Willey as Paarl Rocks' international marquee player for the second edition of the Mzansi Super League","https://a.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1186406_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
-        newsList.add(new NewsItem("001","Jason Holder steps up to change","A drive on the up, to the left of cover point. That shot, by Ajinkya Rahane off Shannon Gabriel, came in the 57th over of India's innings on Friday.","https://a3.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1199103_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
-        newsList.add(new NewsItem("001","Isuru Udana to replace David Willey","Sri Lanka allrounder Isuru Udana has replaced David Willey as Paarl Rocks' international marquee player for the second edition of the Mzansi Super League","https://a.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1186406_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
-        newsList.add(new NewsItem("001","Jason Holder steps up to change","A drive on the up, to the left of cover point. That shot, by Ajinkya Rahane off Shannon Gabriel, came in the 57th over of India's innings on Friday.","https://a3.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1199103_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
-        newsList.add(new NewsItem("001","Isuru Udana to replace David Willey","Sri Lanka allrounder Isuru Udana has replaced David Willey as Paarl Rocks' international marquee player for the second edition of the Mzansi Super League","https://a.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1186406_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
-
+        newsList.add(new NewsItem("002","Isuru Udana to replace David Willey","Sri Lanka allrounder Isuru Udana has replaced David Willey as Paarl Rocks' international marquee player for the second edition of the Mzansi Super League","https://a.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1186406_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
+        newsList.add(new NewsItem("003","Jason Holder steps up to change","A drive on the up, to the left of cover point. That shot, by Ajinkya Rahane off Shannon Gabriel, came in the 57th over of India's innings on Friday.","https://a3.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1199103_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
+        newsList.add(new NewsItem("004","Isuru Udana to replace David Willey","Sri Lanka allrounder Isuru Udana has replaced David Willey as Paarl Rocks' international marquee player for the second edition of the Mzansi Super League","https://a.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1186406_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
+        newsList.add(new NewsItem("005","Jason Holder steps up to change","A drive on the up, to the left of cover point. That shot, by Ajinkya Rahane off Shannon Gabriel, came in the 57th over of India's innings on Friday.","https://a3.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1199103_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
+        newsList.add(new NewsItem("006","Isuru Udana to replace David Willey","Sri Lanka allrounder Isuru Udana has replaced David Willey as Paarl Rocks' international marquee player for the second edition of the Mzansi Super League","https://a.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1186406_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
 
     }
 

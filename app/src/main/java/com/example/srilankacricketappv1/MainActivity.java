@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import fragment.ContactFragment;
+import fragment.FaceBookFragment;
 import fragment.Home;
 import fragment.PollingFragment;
 import fragment.SearchFragment;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Home()).commit();
     }
 
     @Override
@@ -106,6 +108,7 @@ public class MainActivity extends AppCompatActivity
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new PollingFragment()).commit();
                 break;
             case R.id.nav_facebook:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FaceBookFragment()).commit();
                 break;
             case R.id.nav_contact_us:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ContactFragment()).commit();

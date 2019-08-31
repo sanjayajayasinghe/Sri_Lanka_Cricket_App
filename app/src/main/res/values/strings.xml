@@ -28,4 +28,9 @@
     <string name="user_comments">Comments</string>
 
     <string name="action_notifications">Notifications</string>
+    <string name="sri_lanka_vs_new_zealand">Sri Lanka vs New Zealand</string>
+    <string name="textview">TextView</string>
+    <string name="todo">TODO</string>
+
+
 </resources>
