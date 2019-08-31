@@ -10,14 +10,10 @@
         android:id="@+id/cardView"
         android:layout_width="324dp"
         android:layout_height="181dp"
-        android:layout_marginTop="153dp"
-        android:layout_marginBottom="578dp"
         android:elevation="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.561">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/country1image"
