@@ -14,14 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.srilankacricketappv1.R;
 
-import org.w3c.dom.Text;
+
 
 import java.util.ArrayList;
 
 public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.ScoreItemHolder> {
 
     private static final String TAG = "[ScoreItemRecyclerView]";
-    private ArrayList<ScoreItem> scoreList = new ArrayList<>();
+    private ArrayList<ScoreItem> scoreList;
 
 
     private Context mContext;
@@ -46,6 +46,19 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
 
         Glide.with(mContext).load(scoreList.get(position).getCountry1image()).asBitmap().into(holder.country1image);
         Glide.with(mContext).load(scoreList.get(position).getCountry2image()).asBitmap().into(holder.country2image);
+
+        holder.country1name.setText(scoreList.get(position).getCountry1name());
+        holder.country2name.setText(scoreList.get(position).getCountry2name());
+
+        holder.country1score.setText(scoreList.get(position).getCountry1score());
+        holder.country2score.setText(scoreList.get(position).getCountry2score());
+
+        if(scoreList.get(position).isLive()){
+            holder.liveBadge.setVisibility(View.VISIBLE);
+        }else{
+            holder.liveBadge.setVisibility(View.GONE);
+        }
+
 
 
     }
@@ -80,7 +93,7 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
         }
     }
 
-    public class ScoreItem{
+    public static class ScoreItem{
 
         String country1image;
         String country1name;
