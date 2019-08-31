@@ -5,8 +5,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,11 +40,13 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
         Log.d(TAG, "onCreateViewHolder: called");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.score_item,parent,false);
         return new ScoreItemHolder(view);
-    }
+}
 
     @Override
-    public void onBindViewHolder(@NonNull ScoreItemHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ScoreItemHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called");
+
+        holder.name.setText(scoreList.get(position).getMatchName());
 
         Glide.with(mContext).load(scoreList.get(position).getCountry1image()).asBitmap().into(holder.country1image);
         Glide.with(mContext).load(scoreList.get(position).getCountry2image()).asBitmap().into(holder.country2image);
@@ -59,7 +63,12 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
             holder.liveBadge.setVisibility(View.GONE);
         }
 
-
+        holder.btnViewMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(),"Click on match ID" + scoreList.get(position).getMatchID(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -78,6 +87,7 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
         TextView country2score;
         TextView liveBadge;
         TextView name;
+        Button btnViewMore;
 
         public ScoreItemHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,12 +99,15 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
             country2score= itemView.findViewById(R.id.country2score);
             liveBadge = itemView.findViewById(R.id.liveBadge);
             name = itemView.findViewById(R.id.name);
+            btnViewMore = itemView.findViewById(R.id.btnViewMore);
 
         }
     }
 
     public static class ScoreItem{
 
+        String matchID;
+        String matchName;
         String country1image;
         String country1name;
         String country1score;
@@ -103,7 +116,9 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
         String country2score;
         boolean isLive;
 
-        public ScoreItem(String country1image, String country1name, String country1score, String country2image, String country2name, String country2score, boolean isLive) {
+        public ScoreItem(String matchID, String matchName,String country1image, String country1name, String country1score, String country2image, String country2name, String country2score, boolean isLive) {
+            this.matchID = matchID;
+            this.matchName = matchName;
             this.country1image = country1image;
             this.country1name = country1name;
             this.country1score = country1score;
@@ -111,6 +126,14 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
             this.country2name = country2name;
             this.country2score = country2score;
             this.isLive = isLive;
+        }
+
+        public String getMatchID() {
+            return matchID;
+        }
+
+        public String getMatchName() {
+            return matchName;
         }
 
         public String getCountry1image() {
