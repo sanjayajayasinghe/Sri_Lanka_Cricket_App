@@ -20,6 +20,7 @@ import fragment.FaceBookFragment;
 import fragment.Home;
 import fragment.PollingFragment;
 import fragment.SearchFragment;
+import fragment.TwitterFragment;
 import fragment.WebcastFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
                 break;
             case R.id.nav_twitter:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new TwitterFragment()).commit();
                 break;
             case R.id.nav_poling:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new PollingFragment()).commit();
