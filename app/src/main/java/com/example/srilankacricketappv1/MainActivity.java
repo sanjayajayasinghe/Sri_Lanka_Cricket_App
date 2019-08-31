@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import fragment.ContactFragment;
+import fragment.Home;
 import fragment.PollingFragment;
 import fragment.SearchFragment;
 import fragment.WebcastFragment;
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity
 
         switch (id){
             case R.id.nav_home:
-                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Home()).commit();
                 break;
             case R.id.nav_latest_news:
                 break;
