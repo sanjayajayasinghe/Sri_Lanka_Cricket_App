@@ -1,20 +1,21 @@
 package com.example.srilankacricketappv1;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
+import android.widget.SearchView;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
 import fragment.ContactFragment;
 import fragment.Home;
 import fragment.PollingFragment;
@@ -23,6 +24,7 @@ import fragment.WebcastFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-       // FloatingActionButton fab = findViewById(R.id.fab);
+        // FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -61,6 +63,25 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_toolbarsearch);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Log.i(TAG, "onQueryTextSubmit: query->" + query);
+                Intent splash = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(splash);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Log.i(TAG, "onQueryTextSubmit: query->" + newText);
+                return false;
+            }
+        });
         return true;
     }
 
@@ -74,8 +95,8 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }else if(id == R.id.action_toolbarsearch){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SearchFragment()).commit();
+        } else if (id == R.id.action_toolbarsearch) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SearchFragment()).commit();
         }
 
         return super.onOptionsItemSelected(item);
@@ -88,27 +109,26 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
 
-
-        switch (id){
+        switch (id) {
             case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Home()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
                 break;
             case R.id.nav_latest_news:
                 break;
             case R.id.nav_video_gallery:
                 break;
             case R.id.nav_Live_webcast:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new WebcastFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new WebcastFragment()).commit();
                 break;
             case R.id.nav_twitter:
                 break;
             case R.id.nav_poling:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new PollingFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PollingFragment()).commit();
                 break;
             case R.id.nav_facebook:
                 break;
             case R.id.nav_contact_us:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ContactFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactFragment()).commit();
 
         }
 
