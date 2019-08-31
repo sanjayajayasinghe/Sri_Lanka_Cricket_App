@@ -21,6 +21,7 @@ import fragment.FaceBookFragment;
 import fragment.Home;
 import fragment.PollingFragment;
 import fragment.SearchFragment;
+import fragment.VideoGalleryFragment;
 import fragment.WebcastFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_latest_news:
                 break;
             case R.id.nav_video_gallery:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new VideoGalleryFragment()).commit();
                 break;
             case R.id.nav_Live_webcast:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new WebcastFragment()).commit();
