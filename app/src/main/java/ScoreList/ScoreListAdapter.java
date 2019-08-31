@@ -47,7 +47,7 @@ public class ScoreListAdapter extends RecyclerView.Adapter<ScoreListAdapter.Scor
         Glide.with(mContext).load(scoreList.get(position).getCountry1image()).asBitmap().into(holder.country1image);
         Glide.with(mContext).load(scoreList.get(position).getCountry2image()).asBitmap().into(holder.country2image);
 
-   
+
     }
 
     @Override
