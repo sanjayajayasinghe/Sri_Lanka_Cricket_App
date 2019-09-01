@@ -34,6 +34,7 @@
     <string name="sri_lanka_vs_new_zealand">Sri Lanka vs New Zealand</string>
     <string name="textview">TextView</string>
     <string name="todo">TODO</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

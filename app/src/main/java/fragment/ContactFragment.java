@@ -14,18 +14,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.srilankacricketappv1.R;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 
 import org.w3c.dom.Text;
 
 import java.util.List;
 
 
-public class ContactFragment extends Fragment {
+public class ContactFragment extends Fragment implements OnMapReadyCallback {
 
 
     TextView email;
     TextView contactNumber;
     TextView web;
+    MapFragment mapFragment;
 
     public ContactFragment() {
         // Required empty public
@@ -40,6 +46,7 @@ public class ContactFragment extends Fragment {
         email = view.findViewById(R.id.email);
         contactNumber = view.findViewById(R.id.contactNumber);
         web = view.findViewById(R.id.web);
+//        mapFragment = view.findViewById(R.id.map);
         addClickListners();
 
 
@@ -85,4 +92,8 @@ public class ContactFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+    }
 }
