@@ -16,9 +16,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.srilankacricketappv1.R;
@@ -46,6 +49,26 @@ public class PollingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_polling, container, false);
+
+        String[] arraySpinner = new String[] {
+                "SL vs NZ 1st ODI match", "IND vs Eng 1st Test match", "Aus vs WI 1st T20 match", "4", "5", "6", "7"
+        };
+        Spinner s = (Spinner) view.findViewById(R.id.current_matches_spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s.setAdapter(adapter);
+
+        TextView description=view.findViewById(R.id.match_description_text_view);
+        description.setText("The Sri Lanka captain wanted his team to show character in the middle, and not sit back satisfied merely by good starts - with bat or ball");
+
+
+
+
+
+
+
+
         country1 = view.findViewById(R.id.country1_logo);
         country2 = view.findViewById(R.id.country2_logo);
         county1Thumb = view.findViewById(R.id.country1_thumb);
@@ -56,6 +79,9 @@ public class PollingFragment extends Fragment {
         Glide.with(view.getContext()).load(NZ).asBitmap().into(country2);
 
         addClickListners();
+
+
+
 
         return view;
     }
