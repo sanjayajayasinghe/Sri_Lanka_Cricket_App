@@ -38,73 +38,60 @@
 
     <ImageView
         android:id="@+id/country1_logo"
-        android:layout_width="84dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="14dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/country1_name"
         app:layout_constraintTop_toBottomOf="@+id/country1_name"
         tools:src="@mipmap/srilanka_cricket_logo" />
 
     <ImageView
         android:id="@+id/country2_logo"
-        android:layout_width="84dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/country2_name"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        app:layout_constraintEnd_toEndOf="@+id/country2_name"
+        app:layout_constraintTop_toTopOf="@+id/country1_logo"
         tools:src="@mipmap/srilanka_cricket_logo" />
 
     <TextView
         android:id="@+id/country2_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
         android:background="@drawable/rounded_textview"
         android:text="NZ"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/country1_name" />
+        app:layout_constraintTop_toTopOf="@+id/country1_name"
+        tools:layout_editor_absoluteX="350dp" />
 
     <TextView
         android:id="@+id/country1_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="248dp"
-        android:layout_marginRight="248dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/rounded_textview"
         android:text="SL"
         android:textSize="40sp"
-        app:layout_constraintEnd_toStartOf="@+id/country2_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_matches_spinner" />
+        tools:layout_editor_absoluteY="112dp" />
 
     <Button
         android:id="@+id/country2_thumb"
         android:layout_width="47dp"
         android:layout_height="45dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:background="@drawable/blackthumb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/country2_logo" />
+        app:layout_constraintTop_toTopOf="@+id/country1_thumb" />
 
     <Button
         android:id="@+id/country1_thumb"
         android:layout_width="47dp"
         android:layout_height="45dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/blackthumb"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/country1_logo" />
