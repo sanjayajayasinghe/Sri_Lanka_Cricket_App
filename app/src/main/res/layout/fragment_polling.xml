@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background" >
+    android:background="@mipmap/background">
 
 
     <Spinner
         android:id="@+id/current_matches_spinner"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
