@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/srilanka_cricket_logo"
+    android:background="@mipmap/sri_lanka_cricket_logo_official_splash"
     tools:context=".SplashActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/srilanka_cricket_logo"
+        android:icon="@mipmap/sri_lanka_cricket_logo_official_splash"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -40,16 +40,19 @@
         <!--<activity android:name=".SplashActivity"></activity>-->
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SearchActivity"/>
         <activity
-            android:name=".SearchActivity">
-        </activity>
+            android:name=".LoadingActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

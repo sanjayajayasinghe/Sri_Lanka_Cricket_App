@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private String TAG = MainActivity.class.getSimpleName();
 
+    //private Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +53,14 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Home()).commit();
+
+        Intent intent = getIntent(); // gets the previously created intent
+       if(intent.hasExtra("message"))
+        //String from=intent.getStringExtra("firstKeyName");
+           getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FaceBookFragment()).commit();
+//        if(from.equals("Facebook")){
+//
+//        }
     }
 
     @Override
@@ -113,6 +123,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
 
+
         switch (id) {
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
@@ -132,10 +143,20 @@ public class MainActivity extends AppCompatActivity
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PollingFragment()).commit();
                 break;
             case R.id.nav_facebook:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FaceBookFragment()).commit();
+                Intent splash =new Intent(MainActivity.this,LoadingActivity.class);
+                startActivity(splash);
+                finish();
+               // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FaceBookFragment()).commit();
                 break;
             case R.id.nav_contact_us:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactFragment()).commit();
+                break;
+            case R.id.nav_share:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Try out our new application \n https://play.google.com/store/apps/details?id=com.app.slcradiogd&hl=en");
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.user_share_string)));
 
         }
 

@@ -50,10 +50,7 @@
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share_black_24dp"
                 android:title="@string/share_app_now" />
-            <item
-                android:id="@+id/rating"
-                android:icon="@drawable/ic_rate_review_black_24dp"
-                android:title="@string/rate_now" />
+
         </menu>
     </item>
 
