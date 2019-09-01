@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private String TAG = MainActivity.class.getSimpleName();
 
-    //private Intent intent;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+////        fab.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View view) {
+////                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+////                        .setAction("Action", null).show();
+////            }
+////        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -52,15 +52,19 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Home()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
 
-        Intent intent = getIntent(); // gets the previously created intent
-       if(intent.hasExtra("message"))
-        //String from=intent.getStringExtra("firstKeyName");
-           getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FaceBookFragment()).commit();
-//        if(from.equals("Facebook")){
-//
-//        }
+        intent = getIntent();
+        // gets the previously created intent
+        if (intent != null) {
+            if (intent.hasExtra("Facebook")) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FaceBookFragment()).commit();
+
+            } else if (intent.hasExtra("Twitter")) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TwitterFragment()).commit();
+            }
+
+        }
     }
 
     @Override
@@ -123,7 +127,6 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
 
-
         switch (id) {
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
@@ -131,22 +134,23 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_latest_news:
                 break;
             case R.id.nav_video_gallery:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new VideoGalleryFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VideoGalleryFragment()).commit();
                 break;
             case R.id.nav_Live_webcast:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new WebcastFragment()).commit();
                 break;
             case R.id.nav_twitter:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new TwitterFragment()).commit();
+                Intent splash1 = new Intent(MainActivity.this, LoadingActivity.class);
+                splash1.putExtra("Twitter", "Twitter");
+                startActivity(splash1);
                 break;
             case R.id.nav_poling:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PollingFragment()).commit();
                 break;
             case R.id.nav_facebook:
-                Intent splash =new Intent(MainActivity.this,LoadingActivity.class);
+                Intent splash = new Intent(MainActivity.this, LoadingActivity.class);
+                splash.putExtra("Facebook", "Facebook");
                 startActivity(splash);
-                finish();
-               // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FaceBookFragment()).commit();
                 break;
             case R.id.nav_contact_us:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactFragment()).commit();

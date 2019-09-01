@@ -1,38 +1,31 @@
 package com.example.srilankacricketappv1;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import fragment.FaceBookFragment;
 
-/**
- * Created by navneet on 12/11/16.
- */
 
 public class LoadingActivity extends AppCompatActivity {
+
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_loading);
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FaceBookFragment()).commit();
+        intent = getIntent();
 
-        final ImageView imageView = (ImageView) findViewById(R.id.imageViewLoading);
-        final Animation animation_1 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.rotate);
-        final Animation animation_2 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.rotate);
-        final Animation animation_3 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.abc_fade_out);
+        final ImageView imageView = findViewById(R.id.imageViewLoading);
+        final Animation animation_1 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate);
+        final Animation animation_2 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate);
+        final Animation animation_3 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.fade_in);
 
-        imageView.startAnimation(animation_2);
-        animation_2.setAnimationListener(new Animation.AnimationListener() {
+        imageView.startAnimation(animation_3);
+        animation_3.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -59,11 +52,13 @@ public class LoadingActivity extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 imageView.startAnimation(animation_3);
                 finish();
-                Intent i = new Intent(getBaseContext(),MainActivity.class);
-                i.putExtra("message", "Facebook");
+                Intent i = new Intent(getBaseContext(), MainActivity.class);
+                if (intent.hasExtra("Twitter")) {
+                    i.putExtra("Twitter", "Twitter");
+                } else if (intent.hasExtra("Facebook")) {
+                    i.putExtra("Facebook", "Facebook");
+                }
                 startActivity(i);
-                //startActivityForResult(i, 1);
-                //this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FaceBookFragment()).commit();
             }
 
             @Override

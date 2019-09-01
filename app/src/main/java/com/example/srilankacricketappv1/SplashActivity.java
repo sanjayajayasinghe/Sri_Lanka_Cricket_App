@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -21,6 +24,10 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        final ImageView imageView = (ImageView) findViewById(R.id.splashlogo);
+        final Animation animation_2 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fade_in);
+        imageView.startAnimation(animation_2);
 
 
         if(isNetworkConnected()){
