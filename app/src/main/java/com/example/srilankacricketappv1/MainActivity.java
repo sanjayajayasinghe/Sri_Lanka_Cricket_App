@@ -89,8 +89,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Log.i(TAG, "onQueryTextSubmit: query->" + query);
-                Intent splash = new Intent(MainActivity.this, SearchActivity.class);
-                startActivity(splash);
+                if(query.equals("WorldCup")) {
+                    Intent splash = new Intent(MainActivity.this, SearchActivity.class);
+                    startActivity(splash);
+                }else{
+                    Intent splash = new Intent(MainActivity.this, SearchNotFoundActivity.class);
+                    startActivity(splash);
+                }
                 return false;
             }
 
