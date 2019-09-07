@@ -1,5 +1,7 @@
 package com.example.srilankacricketappv1;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -85,17 +87,15 @@ public class MainActivity extends AppCompatActivity
         SearchView searchView = (SearchView) searchItem.getActionView();
 
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setQueryHint("Search Here");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Log.i(TAG, "onQueryTextSubmit: query->" + query);
-                if(query.equals("WorldCup")) {
                     Intent splash = new Intent(MainActivity.this, SearchActivity.class);
+                    splash.setAction(Intent.ACTION_SEARCH);
+                    splash.putExtra(SearchManager.QUERY,query);
                     startActivity(splash);
-                }else{
-                    Intent splash = new Intent(MainActivity.this, SearchNotFoundActivity.class);
-                    startActivity(splash);
-                }
                 return false;
             }
 

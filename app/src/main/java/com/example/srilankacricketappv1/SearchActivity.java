@@ -1,5 +1,7 @@
 package com.example.srilankacricketappv1;
 
+import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,8 +22,8 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_content);
-        fillExampleList();
-        setUpRecyclerView();
+        handleIntent(getIntent());
+
     }
 
     private void fillExampleList() {
@@ -38,5 +40,27 @@ public class SearchActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+    }
+
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        setIntent(intent);
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            if(query.equals("WorldCup")){
+                fillExampleList();
+                setUpRecyclerView();
+            }else{
+                Intent splash = new Intent(SearchActivity.this, SearchNotFoundActivity.class);
+                startActivity(splash);
+            }
+
+
+        }
     }
 }
