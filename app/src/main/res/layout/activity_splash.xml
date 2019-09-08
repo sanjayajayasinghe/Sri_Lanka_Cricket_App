@@ -11,9 +11,13 @@
         android:id="@+id/splashlogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="303dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/sri_lanka_cricket_logo_official_splash" />
 </androidx.constraintlayout.widget.ConstraintLayout>
