@@ -51,7 +51,7 @@ public class PollingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_polling, container, false);
 
         String[] arraySpinner = new String[] {
-                "SL vs NZ 1st ODI match", "IND vs Eng 1st Test match", "Aus vs WI 1st T20 match"
+                "SL vs IND 1st ODI match", "NZ vs Eng 1st Test match", "Aus vs WI 1st T20 match"
         };
         Spinner s = (Spinner) view.findViewById(R.id.current_matches_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
