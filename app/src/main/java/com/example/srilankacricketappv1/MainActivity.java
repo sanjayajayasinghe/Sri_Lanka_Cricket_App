@@ -1,7 +1,6 @@
 package com.example.srilankacricketappv1;
 
 import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 import fragment.ContactFragment;
 import fragment.FaceBookFragment;
 import fragment.Home;
+import fragment.LatestNews;
 import fragment.PollingFragment;
 import fragment.SearchFragment;
 import fragment.TwitterFragment;
@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
                 break;
             case R.id.nav_latest_news:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LatestNews()).commit();
                 break;
             case R.id.nav_video_gallery:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VideoGalleryFragment()).commit();
