@@ -222,9 +222,6 @@
 <!--        android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
 <!--        android:visibility="visible" />-->
 
-    <include
-        android:id="@+id/include2"
-        layout="@layout/app_bar_main" />
 
     <Button
         android:id="@+id/button"
@@ -232,15 +229,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="34dp"
-        android:layout_marginRight="34dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginRight="47dp"
         android:background="@drawable/ic_search_black_24dp" />
 
     <ScrollView
         android:layout_width="374dp"
         android:layout_height="516dp"
-        android:layout_alignBottom="@+id/include2"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
@@ -249,7 +245,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="21dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="216dp">
+        android:layout_marginTop="150dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -422,46 +418,48 @@
         android:id="@+id/sort"
         android:layout_width="124dp"
         android:layout_height="35dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="250dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="37dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="250dp"
         android:layout_marginRight="250dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="154dp"
         android:background="@drawable/ash_back_ash_boader"
         android:text="@string/action_sort" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="143dp"
-        android:layout_height="34dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_width="124dp"
+        android:layout_height="35dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="95dp"
-        android:layout_marginLeft="173dp"
-        android:layout_marginRight="95dp"
-        android:layout_marginStart="173dp"
-        android:layout_marginTop="154dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="243dp"
+        android:layout_marginLeft="243dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:background="@drawable/ash_back_ash_boader"
         android:text="@string/action_filter" />
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="263dp"
-        android:layout_height="66dp"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="119dp"
-        android:layout_marginRight="119dp"
-        android:layout_marginTop="79dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginRight="132dp"
         android:hint="search here......"
         android:inputType="textPersonName"
         android:selectAllOnFocus="false"
