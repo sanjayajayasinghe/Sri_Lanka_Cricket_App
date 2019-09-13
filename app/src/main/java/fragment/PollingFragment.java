@@ -51,11 +51,11 @@ public class PollingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_polling, container, false);
 
         String[] arraySpinner = new String[] {
-                "SL vs NZ 1st ODI match", "IND vs Eng 1st Test match", "Aus vs WI 1st T20 match", "4", "5", "6", "7"
+                "SL vs NZ 1st ODI match", "IND vs Eng 1st Test match", "Aus vs WI 1st T20 match"
         };
         Spinner s = (Spinner) view.findViewById(R.id.current_matches_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item, arraySpinner);
+                R.layout.country_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(adapter);
 
@@ -76,7 +76,7 @@ public class PollingFragment extends Fragment {
         progressBar = view.findViewById(R.id.progressBar);
 
         Glide.with(view.getContext()).load(SL).asBitmap().into(country1);
-        Glide.with(view.getContext()).load(NZ).asBitmap().into(country2);
+        Glide.with(view.getContext()).load(IND).asBitmap().into(country2);
 
         addClickListners();
 
