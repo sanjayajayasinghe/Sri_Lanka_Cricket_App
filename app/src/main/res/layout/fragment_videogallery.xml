@@ -461,6 +461,7 @@
         android:layout_marginEnd="132dp"
         android:layout_marginRight="132dp"
         android:hint="search here......"
+        android:textColorHint="#FFFFFF"
         android:inputType="textPersonName"
         android:selectAllOnFocus="false"
         android:singleLine="false"
