@@ -11,7 +11,9 @@ import android.os.Bundle;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import ScoreList.NewsListAdapter.NewsItem;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,9 +29,18 @@ import com.bumptech.glide.Glide;
 import com.example.srilankacricketappv1.R;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+
+import ScoreList.NewsListAdapter;
+import ScoreList.ScoreListAdapter;
+import adapter.CommentaryAdapter;
 
 
 public class PollingFragment extends Fragment {
+
+   // private ArrayList<ScoreItem> scoreList = new ArrayList<>();
+    private ArrayList<NewsItem> newsList = new ArrayList<>();
+    private RecyclerView recyclerViewNews;
 
     ImageView country1;
     ImageView country2;
@@ -49,6 +60,11 @@ public class PollingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_polling, container, false);
+        recyclerViewNews = view.findViewById(R.id.recyclerViewPolling);
+        addItems();
+        initRecyclerView();
+
+
 
         String[] arraySpinner = new String[] {
                 "SL vs IND 1st ODI match", "NZ vs Eng 1st Test match", "Aus vs WI 1st T20 match"
@@ -130,6 +146,23 @@ public class PollingFragment extends Fragment {
     }
 
 
+    private void addItems(){
+        newsList.add(new NewsItem("001","overs 2.5 ","A drive on the up, to the left of cover point. That shot, by Ajinkya Rahane off Shannon Gabriel, came in the 57th over of India's innings on Friday.","https://a3.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1199103_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
+        newsList.add(new NewsItem("002","overs 2.4","Sri Lanka allrounder Isuru Udana has replaced David Willey as Paarl Rocks' international marquee player for the second edition of the Mzansi Super League","https://a.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1186406_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
+        newsList.add(new NewsItem("003","overs 2.3","A drive on the up, to the left of cover point. That shot, by Ajinkya Rahane off Shannon Gabriel, came in the 57th over of India's innings on Friday.","https://a3.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1199103_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
+        newsList.add(new NewsItem("004","overs 2.2","Sri Lanka allrounder Isuru Udana has replaced David Willey as Paarl Rocks' international marquee player for the second edition of the Mzansi Super League","https://a.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1186406_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
+        newsList.add(new NewsItem("005","overs 2.1","A drive on the up, to the left of cover point. That shot, by Ajinkya Rahane off Shannon Gabriel, came in the 57th over of India's innings on Friday.","https://a3.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1199103_1296x729.jpg&w=920&h=518&scale=crop&cquality=40&location=origin&format=jpg"));
+
+    }
+
+    private void initRecyclerView() {
+
+        CommentaryAdapter adapterNews = new CommentaryAdapter(newsList,this.getContext());
+        recyclerViewNews.setAdapter(adapterNews);
+
+        RecyclerView.LayoutManager linearLayoutManagerNews = new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false);
+        recyclerViewNews.setLayoutManager(linearLayoutManagerNews);
+    }
 
     private static final String SL = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Sri_Lanka.svg/1920px-Flag_of_Sri_Lanka.svg.png";
     private static final String IND = "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/383px-Flag_of_India.svg.png";
