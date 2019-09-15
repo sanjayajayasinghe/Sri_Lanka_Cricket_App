@@ -19,6 +19,7 @@
         android:textColor="#030847"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:textIsSelectable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,6 +37,7 @@
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:layout_marginBottom="621dp"
+        android:textIsSelectable="true"
         android:background="@drawable/rounded_textview"
         android:drawableStart="@mipmap/icons8_outgoing_call_48"
         android:drawableLeft="@mipmap/icons8_outgoing_call_48"
@@ -58,6 +60,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
+        android:textIsSelectable="true"
         android:background="@drawable/rounded_textview"
         android:drawableStart="@mipmap/icons8_send_email_64"
 
@@ -77,6 +80,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
+        android:textIsSelectable="true"
 
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
@@ -96,7 +100,7 @@
         android:layout_height="@dimen/contact_us_text_area_height_size"
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
-
+        android:textIsSelectable="true"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
