@@ -47,6 +47,8 @@ public class PollingFragment extends Fragment {
     Button county1Thumb;
     Button county2Thumb;
     ProgressBar progressBar;
+    TextView country1Precentage;
+    TextView country2Precentage;
 
     private static final String TAG = "Polling";
 
@@ -60,6 +62,19 @@ public class PollingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_polling, container, false);
+        country1Precentage=view.findViewById(R.id.country1Precentage);
+        country2Precentage=view.findViewById(R.id.country2Precentage);
+        country1 = view.findViewById(R.id.country1_logo);
+        country2 = view.findViewById(R.id.country2_logo);
+        county1Thumb = view.findViewById(R.id.country1_thumb);
+        county2Thumb = view.findViewById(R.id.country2_thumb);
+        progressBar = view.findViewById(R.id.progressBar);
+
+        progressBar.setProgress(30);
+        country1Precentage.setText(progressBar.getProgress()+"%");
+        country2Precentage.setText((100-progressBar.getProgress())+"%");
+
+
         recyclerViewNews = view.findViewById(R.id.recyclerViewPolling);
         addItems();
         initRecyclerView();
@@ -75,8 +90,8 @@ public class PollingFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(adapter);
 
-        TextView description=view.findViewById(R.id.match_description_text_view);
-        description.setText("The Sri Lanka captain wanted his team to show character in the middle, and not sit back satisfied merely by good starts - with bat or ball");
+        //TextView description=view.findViewById(R.id.match_description_text_view);
+       // description.setText("The Sri Lanka captain wanted his team to show character in the middle, and not sit back satisfied merely by good starts - with bat or ball");
 
 
 
@@ -85,11 +100,7 @@ public class PollingFragment extends Fragment {
 
 
 
-        country1 = view.findViewById(R.id.country1_logo);
-        country2 = view.findViewById(R.id.country2_logo);
-        county1Thumb = view.findViewById(R.id.country1_thumb);
-        county2Thumb = view.findViewById(R.id.country2_thumb);
-        progressBar = view.findViewById(R.id.progressBar);
+
 
         Glide.with(view.getContext()).load(SL).asBitmap().into(country1);
         Glide.with(view.getContext()).load(IND).asBitmap().into(country2);
@@ -104,43 +115,47 @@ public class PollingFragment extends Fragment {
 
     private void addClickListners(){
 
-        county2Thumb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if ( county2Thumb.getBackground().getConstantState()==getResources().getDrawable(R.drawable.blackthumb).getConstantState())
-                {
-                    county2Thumb.setBackgroundResource(R.drawable.bluethumb);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        progressBar.setProgress(progressBar.getProgress() + 10,true);
-                    }
-                }else{
-                    county2Thumb.setBackgroundResource(R.drawable.blackthumb);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        progressBar.setProgress(progressBar.getProgress() - 10,true);
-                    }
-                }
-            }
-        });
-
         county1Thumb.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
 
-                if ( county1Thumb.getBackground().getConstantState()==getResources().getDrawable(R.drawable.blackthumb).getConstantState())                {
+                if ( county1Thumb.getBackground().getConstantState()==getResources().getDrawable(R.drawable.blackthumb).getConstantState())
+                {
                     county1Thumb.setBackgroundResource(R.drawable.bluethumb);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        progressBar.setProgress(progressBar.getProgress() - 10,true);
+                        progressBar.setProgress(progressBar.getProgress() + 5,true);
                     }
                 }else{
                     county1Thumb.setBackgroundResource(R.drawable.blackthumb);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        progressBar.setProgress(progressBar.getProgress() + 10,true);
+                        progressBar.setProgress(progressBar.getProgress() - 5,true);
+                    }
+                }
+                country1Precentage.setText(progressBar.getProgress()+"%");
+                country2Precentage.setText((100-progressBar.getProgress())+"%");
+
+            }
+        });
+
+        county2Thumb.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                if ( county2Thumb.getBackground().getConstantState()==getResources().getDrawable(R.drawable.blackthumb).getConstantState())                {
+                    county2Thumb.setBackgroundResource(R.drawable.bluethumb);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        progressBar.setProgress(progressBar.getProgress() - 5,true);
+                    }
+                }else{
+                    county2Thumb.setBackgroundResource(R.drawable.blackthumb);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        progressBar.setProgress(progressBar.getProgress() + 5,true);
                     }
                 }
 
-
+                    country1Precentage.setText(progressBar.getProgress()+"%");
+                country2Precentage.setText((100-progressBar.getProgress())+"%");
             }
         });
     }
